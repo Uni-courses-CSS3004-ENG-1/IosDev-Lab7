@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'screens/root_screen.dart';
+
 void main() {
   runApp(const ShopApp());
 }
@@ -13,7 +15,7 @@ class ShopApp extends StatelessWidget {
       title: 'Lab 7 Shop',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(colorSchemeSeed: Colors.indigo, useMaterial3: true),
-      home: const Scaffold(body: Center(child: Text('Lab 7 — Navigation & Tabs'))),
+      home: const RootScreen(),
     );
   }
 }
