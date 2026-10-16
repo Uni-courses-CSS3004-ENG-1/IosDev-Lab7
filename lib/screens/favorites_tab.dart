@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../models/product.dart';
+import 'detail_screen.dart';
 
 /// Tab 2: the products the user has saved with the heart button.
 class FavoritesTab extends StatelessWidget {
@@ -34,6 +35,12 @@ class FavoritesTab extends StatelessWidget {
               itemBuilder: (context, index) {
                 final product = favorites[index];
                 return ListTile(
+                  onTap: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => DetailScreen(product: product),
+                    ),
+                  ),
                   leading: ClipRRect(
                     borderRadius: BorderRadius.circular(8),
                     child: Image.asset(

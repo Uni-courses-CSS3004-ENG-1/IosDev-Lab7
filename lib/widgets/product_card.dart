@@ -9,11 +9,13 @@ class ProductCard extends StatelessWidget {
     required this.product,
     required this.isFavorite,
     required this.onFavoriteToggle,
+    required this.onTap,
   });
 
   final Product product;
   final bool isFavorite;
   final VoidCallback onFavoriteToggle;
+  final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -22,58 +24,61 @@ class ProductCard extends StatelessWidget {
     return Card(
       clipBehavior: Clip.antiAlias,
       margin: const EdgeInsets.only(bottom: 16),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          AspectRatio(
-            aspectRatio: 16 / 9,
-            child: Image.asset(product.imagePath, fit: BoxFit.cover),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(12),
-            child: Row(
-              children: [
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        product.title,
-                        style: const TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
-                      const SizedBox(height: 4),
-                      Text(
-                        product.category,
-                        style: TextStyle(color: colors.onSurfaceVariant),
-                      ),
-                    ],
-                  ),
-                ),
-                Text(
-                  product.formattedPrice,
-                  style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                    color: colors.primary,
-                  ),
-                ),
-                IconButton(
-                  tooltip: isFavorite
-                      ? 'Remove from favorites'
-                      : 'Add to favorites',
-                  icon: Icon(
-                    isFavorite ? Icons.favorite : Icons.favorite_border,
-                    color: isFavorite ? Colors.red : null,
-                  ),
-                  onPressed: onFavoriteToggle,
-                ),
-              ],
+      child: InkWell(
+        onTap: onTap,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            AspectRatio(
+              aspectRatio: 16 / 9,
+              child: Image.asset(product.imagePath, fit: BoxFit.cover),
             ),
-          ),
-        ],
+            Padding(
+              padding: const EdgeInsets.all(12),
+              child: Row(
+                children: [
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          product.title,
+                          style: const TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                        const SizedBox(height: 4),
+                        Text(
+                          product.category,
+                          style: TextStyle(color: colors.onSurfaceVariant),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Text(
+                    product.formattedPrice,
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                      color: colors.primary,
+                    ),
+                  ),
+                  IconButton(
+                    tooltip: isFavorite
+                        ? 'Remove from favorites'
+                        : 'Add to favorites',
+                    icon: Icon(
+                      isFavorite ? Icons.favorite : Icons.favorite_border,
+                      color: isFavorite ? Colors.red : null,
+                    ),
+                    onPressed: onFavoriteToggle,
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
