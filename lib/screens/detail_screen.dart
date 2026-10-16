@@ -14,7 +14,16 @@ class DetailScreen extends StatelessWidget {
     final colors = Theme.of(context).colorScheme;
 
     return Scaffold(
-      appBar: AppBar(title: Text(product.title)),
+      appBar: AppBar(
+        // Navigator.pop removes only this screen, so the tabs underneath keep
+        // their state (scroll position, favorites, profile switches).
+        leading: IconButton(
+          tooltip: 'Back',
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () => Navigator.pop(context),
+        ),
+        title: Text(product.title),
+      ),
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -58,6 +67,15 @@ class DetailScreen extends StatelessWidget {
                   Text(
                     product.description,
                     style: const TextStyle(fontSize: 16, height: 1.4),
+                  ),
+                  const SizedBox(height: 28),
+                  SizedBox(
+                    width: double.infinity,
+                    child: FilledButton.icon(
+                      onPressed: () => Navigator.pop(context),
+                      icon: const Icon(Icons.arrow_back),
+                      label: const Text('Go Back'),
+                    ),
                   ),
                 ],
               ),
