@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../models/product.dart';
+import 'feed_tab.dart';
 import 'profile_tab.dart';
 
 /// Root screen: holds the BottomNavigationBar and switches between tabs.
@@ -16,7 +18,7 @@ class _RootScreenState extends State<RootScreen> {
   @override
   Widget build(BuildContext context) {
     final tabs = [
-      const Center(child: Text('Feed')),
+      const FeedTab(products: sampleProducts),
       const Center(child: Text('Favorites')),
       const ProfileTab(),
     ];
