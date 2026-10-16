@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../models/product.dart';
+import 'favorites_tab.dart';
 import 'feed_tab.dart';
 import 'profile_tab.dart';
 
@@ -15,11 +16,30 @@ class RootScreen extends StatefulWidget {
 class _RootScreenState extends State<RootScreen> {
   int _currentIndex = 0;
 
+  // Favorites live here so both the Feed and Favorites tabs see the same data.
+  final Set<String> _favoriteIds = {};
+
+  void _toggleFavorite(Product product) {
+    setState(() {
+      if (!_favoriteIds.remove(product.id)) {
+        _favoriteIds.add(product.id);
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
+    final favorites = sampleProducts
+        .where((product) => _favoriteIds.contains(product.id))
+        .toList();
+
     final tabs = [
-      const FeedTab(products: sampleProducts),
-      const Center(child: Text('Favorites')),
+      FeedTab(
+        products: sampleProducts,
+        favoriteIds: _favoriteIds,
+        onToggleFavorite: _toggleFavorite,
+      ),
+      FavoritesTab(favorites: favorites, onToggleFavorite: _toggleFavorite),
       const ProfileTab(),
     ];
 

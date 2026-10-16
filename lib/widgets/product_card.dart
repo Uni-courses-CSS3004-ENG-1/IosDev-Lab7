@@ -4,9 +4,16 @@ import '../models/product.dart';
 
 /// A card with the product image, title, category and price.
 class ProductCard extends StatelessWidget {
-  const ProductCard({super.key, required this.product});
+  const ProductCard({
+    super.key,
+    required this.product,
+    required this.isFavorite,
+    required this.onFavoriteToggle,
+  });
 
   final Product product;
+  final bool isFavorite;
+  final VoidCallback onFavoriteToggle;
 
   @override
   Widget build(BuildContext context) {
@@ -52,6 +59,16 @@ class ProductCard extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                     color: colors.primary,
                   ),
+                ),
+                IconButton(
+                  tooltip: isFavorite
+                      ? 'Remove from favorites'
+                      : 'Add to favorites',
+                  icon: Icon(
+                    isFavorite ? Icons.favorite : Icons.favorite_border,
+                    color: isFavorite ? Colors.red : null,
+                  ),
+                  onPressed: onFavoriteToggle,
                 ),
               ],
             ),
