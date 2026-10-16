@@ -40,4 +40,12 @@ flutter run        # pick an iOS simulator
 flutter test       # widget tests
 ```
 
-Product photos are from [Unsplash](https://unsplash.com).
+## Photo credits
+Product photos from Wikimedia Commons, resized for the app:
+
+| Product | Photo | Author | License |
+|---|---|---|---|
+| iPhone 14 Pro | [iPhone 14 Pro Deep Purple](https://commons.wikimedia.org/wiki/File:IPhone_14_Pro_Deep_Purple.jpg) | iGeeksBlog | CC BY-SA 4.0 |
+| MacBook Pro 13" M1 | [MacBook Pro 13" M1 2020](https://commons.wikimedia.org/wiki/File:Macbook_Pro_13%22_M1_2020.jpg) | DYVER | CC BY-SA 4.0 |
+| JBL Wireless Earbuds | [JBL earbuds](https://commons.wikimedia.org/wiki/File:2023_S%C5%82uchawki_JBL_TL0846_(2).jpg) | Jacek Halicki | CC BY-SA 4.0 |
+| Wireless Controller | [Xbox controller](https://commons.wikimedia.org/wiki/File:Xbox-360-Controller-Black.jpg) | Evan-Amos | Public domain |
