@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../models/product.dart';
 import '../widgets/product_card.dart';
+import 'detail_screen.dart';
 
 /// Tab 1: the list of products.
 class FeedTab extends StatelessWidget {
@@ -16,6 +17,14 @@ class FeedTab extends StatelessWidget {
   final Set<String> favoriteIds;
   final ValueChanged<Product> onToggleFavorite;
 
+  /// Pushes the DetailScreen and passes it the whole Product object.
+  void _openDetail(BuildContext context, Product product) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => DetailScreen(product: product)),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,6 +38,7 @@ class FeedTab extends StatelessWidget {
             product: product,
             isFavorite: favoriteIds.contains(product.id),
             onFavoriteToggle: () => onToggleFavorite(product),
+            onTap: () => _openDetail(context, product),
           );
         },
       ),
