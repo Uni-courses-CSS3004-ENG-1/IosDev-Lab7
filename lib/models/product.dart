@@ -21,43 +21,43 @@ class Product {
 
 const sampleProducts = [
   Product(
-    id: 'headphones',
-    title: 'Wireless Headphones',
+    id: 'iphone',
+    title: 'iPhone 14 Pro',
     description:
-        'Over-ear Bluetooth headphones with active noise cancelling, '
-        'soft memory-foam cushions and up to 30 hours of battery life.',
-    imagePath: 'assets/images/headphones.jpg',
-    price: 129.99,
+        '6.1-inch Super Retina XDR display with ProMotion and Dynamic '
+        'Island, A16 Bionic chip and a 48 MP main camera. Deep Purple.',
+    imagePath: 'assets/images/iphone.jpg',
+    price: 899.00,
+    category: 'Phones',
+  ),
+  Product(
+    id: 'macbook',
+    title: 'MacBook Pro 13" M1',
+    description:
+        'Apple M1 chip, 8 GB of unified memory and a 256 GB SSD. '
+        'Retina display and up to 20 hours of battery life. Space Gray.',
+    imagePath: 'assets/images/macbook.jpg',
+    price: 999.00,
+    category: 'Laptops',
+  ),
+  Product(
+    id: 'earbuds',
+    title: 'JBL Wireless Earbuds',
+    description:
+        'Sweat-proof true wireless earbuds with touch controls and a '
+        'pocket-size charging case for up to 30 hours of music.',
+    imagePath: 'assets/images/earbuds.jpg',
+    price: 99.00,
     category: 'Audio',
   ),
   Product(
-    id: 'watch',
-    title: 'Smart Watch',
+    id: 'controller',
+    title: 'Wireless Controller',
     description:
-        'Minimal round smart watch that tracks steps, heart rate and sleep. '
-        'Water resistant, with a comfortable silicone strap.',
-    imagePath: 'assets/images/watch.jpg',
-    price: 199.00,
-    category: 'Wearables',
-  ),
-  Product(
-    id: 'sneakers',
-    title: 'Running Sneakers',
-    description:
-        'Lightweight knit running shoes with a cushioned sole for '
-        'everyday training and long-distance runs.',
-    imagePath: 'assets/images/sneakers.jpg',
-    price: 89.50,
-    category: 'Shoes',
-  ),
-  Product(
-    id: 'camera',
-    title: 'Instant Camera',
-    description:
-        'Retro instant camera that prints photos in seconds. '
-        'Built-in flash and a selfie mirror for perfect shots.',
-    imagePath: 'assets/images/camera.jpg',
-    price: 74.99,
-    category: 'Photo',
+        'Comfortable wireless gamepad with two analog sticks, rumble '
+        'feedback and responsive triggers. Works with PC and Xbox.',
+    imagePath: 'assets/images/controller.jpg',
+    price: 49.99,
+    category: 'Gaming',
   ),
 ];
